@@ -6,41 +6,64 @@
 <link rel="stylesheet" type="text/stylesheet" href="./styles/base.css">
 <link rel="stylesheet" type="text/stylesheet" href="./styles/layout.css">
 <link rel="stylesheet" type="text/stylesheet" href="./styles/skeleton.css">
+<style>
+	#step-wise-guide li{
+		list-style-type: upper-roman;
+	}
+
+	#user-question{
+		font-weight: bold;
+	}
+</style>
 </head>
 <body>
-<h1>Welkom bij Sergei's Programmeerweetjeshoek</h1>
-<section id="questions">
-<div id="introduction">
-<p>Elke week bellen wanhopige luisteraars, van welke het merendeel knappe dames onze service, met wanhoop. Vandaag leest u het relaas van een programmeuse uit een pittoresk dorp in het Antwerpse.</p>
-</div>
-<div id="userquestion">
-	<p>Q: Hallo! Ik zou graag Notepad++ of Atoms openen via m'n git bash, maar ik voel me als een brei-oma zonder naalden.</p>
-</div>	
-<div id="answerSuggestion">
-	<p>Ha, wij houden hier op de redactie wel van brei-oma's! Dankjewel voor deze boeiende vraag, om in de sfeer te blijven zal ik de rode draad proberen bloot te leggen.</p>
-	<p>Ok, laten we beginnen bij het begin. Ik ga er hier vanuit dat je de git shell gebruikt van <a href="https://windows.github.com/">deze pagina</a>.</p>
-	<p>Concreet begrijp ik uit je vraag dat je graag in de command line een commando wil intypen als "notepad++ dezeTekstWilIkOpenen.txt", hiervoor neem je volgende stappen:</p>
+<div class="container">
+	<h1>Welkom bij Sergei's Programmeerweetjeshoek</h1>
 
-	<ul>
-		<li><key>windowstoets</key> + <key>S</key> --> zoek naar 'git shell'</li>
-		<li>navigeer naar een plaats naar keuze en maak een bestandje aan, bv. 'cd c:/users/sergei/desktop', vervolgens 'touch verhaaltje.txt'</li>
-		<li>Controleer of je bestandje echt aangemaakt is door het commando 'ls' te typen, je bestand moet tussen de opgelijste bestanden staan</li>
-		<li><key>windowstoets</key> + <key>S</key> --> zoek naar 'Rapid Environment Editor', open nu <strong>als administrator</strong> dit programma</li>
-		<li>Sluit de terminal af</li>
-		<li>In rapid environment editor in de linkse kolom, druk je op het '+'-tekentje naast 'Path'</li>
-		<li>Rechtermuisklik op 'Path' en klik op 'add value', vervolgens op 'insert directory path'</li>
-		<li>Nu moet je op zoek naar het '.exe'-bestandje van het gewenste programma</li>
-		<li>Bij mij zit dat voor Notepad++ bij 'Deze pc' - 'Windows8_OS (C:)' - 'Program Files (x86)' - 'Notepad++'</li>
-		<li>Ik klip op het 'Notepad++'-mapje en klik op de 'ok'-toets</li>
-		<li>Druk nu linksboven in 'Rapid Environment Editor' op het diskette-symbool en sluit het programma</li>
-		<li>Nu weer stap 1 -> open git shell</li>
-		<li>Navigeer naar de plaats waar ons verhaaltje.txt is opgeslaan. Typ vervolgens 'notepad++ verhaaltje.txt'</li>
-		<li>Notepad++ opent verhaaltje.txt</li>
-	</ul>
+	<div class="sixteen columns">
+			<img class="componist" src="./images/220px-Rachmaninoff_1900.jpg">
+	</div>
+
+	<section id="questions">
+			<div id="introduction">
+			<p>Elke week bellen wanhopige luisteraars, van welke het merendeel knappe dames, onze service. Vandaag leest u het relaas van een programmeuse uit een pittoresk dorp in het Antwerpse.</p>
+			</div>
+			<div id="user-question">
+				<p>Q: Hallo! Ik zou graag Notepad++ of Atoms openen via m'n git bash, maar ik voel me als een brei-oma zonder naalden.</p>
+			</div>	
+			<div id="answerSuggestion">
+				<p>Ha, wij houden hier op de redactie wel van brei-oma's! Dankjewel voor deze boeiende vraag! Om in de sfeer te blijven zal ik de rode draad proberen bloot te leggen.</p>
+				<hr>
+				<p>Ok, laten we beginnen bij het begin. Ik ga er hier vanuit dat je de git shell gebruikt van <a href="https://windows.github.com/">deze pagina</a>.</p>
+				<p>Concreet begrijp ik uit je vraag dat je graag in de command line een commando wil intypen als "notepad++ dezeTekstWilIkOpenen.txt", hiervoor neem je volgende stappen:</p>
+
+				<ul id="step-wise-guide">
+					<li><key>windowstoets</key> + <key>S</key> --> zoek naar 'git shell'</li>
+					<li>navigeer naar een plaats naar keuze en maak een bestandje aan, bv. 'cd c:/users/sergei/desktop', vervolgens 'touch verhaaltje.txt'</li>
+					<li>Controleer of je bestandje echt aangemaakt is door het commando 'ls' te typen, je bestand moet tussen de opgelijste bestanden staan</li>
+					<li><key>windowstoets</key> + <key>S</key> --> zoek naar 'Rapid Environment Editor', open nu <strong>als administrator</strong> dit programma</li>
+					<li>Sluit de terminal af</li>
+					<li>In rapid environment editor in de linkse kolom, druk je op het '+'-tekentje naast 'Path'</li>
+					<li>Rechtermuisklik op 'Path' en klik op 'add value', vervolgens op 'insert directory path'</li>
+					<li>Nu moet je op zoek naar het '.exe'-bestandje van het gewenste programma</li>
+					<li>Bij mij zit dat voor Notepad++ bij 'Deze pc' - 'Windows8_OS (C:)' - 'Program Files (x86)' - 'Notepad++'</li>
+					<li>Ik klip op het 'Notepad++'-mapje en klik op de 'ok'-toets</li>
+					<li>Druk nu linksboven in 'Rapid Environment Editor' op het diskette-symbool en sluit het programma</li>
+					<li>Nu weer stap 1 -> open git shell</li>
+					<li>Navigeer naar de plaats waar ons verhaaltje.txt is opgeslaan. Typ vervolgens 'notepad++ verhaaltje.txt'</li>
+					<li>Notepad++ opent verhaaltje.txt</li>
+				</ul>
+			</div>
+	</section>
+
+	<div>
+		<p>En, lieve lezertjes, om af te sluiten, dit prachtige antwoord van mijn goede vriend Bill Gates. <br>Nu ga ik verderwerken aan mijn symphonieën, toedels!</p>
+		<pre> Da Sergei =) </pre>
+	</div>
+
+	<div id="endNotes">
+		<img src="./images/Hi Reddit  I’m Bill Gates and I’m back for my third AMA. Ask me anything.  IAmA.png">
+	</div>
 </div>
-<div id="endNotes">
-	<img src="./images/Hi Reddit  I’m Bill Gates and I’m back for my third AMA. Ask me anything.  IAmA.png">
-</div>
-</section>
 </body>
 </html>
