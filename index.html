@@ -6,10 +6,66 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 <style>
+/* Table of Contents 
+
+- body
+- buttons
+- menu
+- poem
+--------------------------*/
+
+/* body
+--------------------------*/
     body{
-      background-color: bisque
+        background-color: bisque;
+        position: relative;    
+    }
+
+/* buttons
+--------------------------*/
+    .openMenuButton {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        font-size: 3rem;
+/*        margin-top: -25px;*/
+        margin-top: -1.50rem;
+        color: grey;
+    }
+
+/* menu
+--------------------------*/
+    .vanish {
+         display: none;   
     }
     
+    nav {
+        border-bottom: 1px solid grey;    
+    }
+    
+    nav ul {
+        list-style-type: none;
+    }
+    
+    nav ul li {
+        padding-left: 2%;
+    }
+    
+    nav ul li a {
+        color: grey;
+        font-size: 2rem;
+        text-decoration: none;   
+    }
+    
+    
+    /* Portrait Phones and Smaller */
+    @media (max-width: 480px) {
+        nav ul li a {
+            font-size: 1.5rem;   
+        }
+    }
+    
+/* poem
+--------------------------*/
     .poemWrapper {
         margin: 20vh auto;
         max-width: 50%;
@@ -48,6 +104,16 @@
 </style>
 </head>
 <body>
+    <header>
+        <nav class="vanish">
+            <ul>
+                <li><a href="tutorialOnMakingAliases.html">Aliases</a></li>
+                <li><a href="feestneus.html">Feestneus</a></li>
+                <li><a href="minimalIsOptimal.html">Minimalism</a></li>
+            </ul>
+        </nav>
+        <button class="openMenuButton">&#x02AF0</button>
+    </header>
    <article class="poemWrapper">
         <p class="poem">
             Komt ze naar me toe <br><br>
@@ -59,5 +125,14 @@
             Letterlijk.
         </p>
    </article>
+<script>
+    var openMenuButton = document.getElementsByClassName('openMenuButton')[0];
+    var navigation = document.getElementsByClassName('vanish')[0];
+    openMenuButton.addEventListener('click', menuHandler, false);
+    
+    function menuHandler(event){
+        navigation.classList.toggle('vanish');
+    }
+</script>
 </body>
 </html>
