@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Home</title>
-	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/stylesheet" href="./styles/base.css">
-	<link rel="stylesheet" type="text/stylesheet" href="./styles/layout.css">
-	<link rel="stylesheet" type="text/stylesheet" href="./styles/skeleton.css">
+    <meta charset="UTF-8">
+    <title>Mahtavaa</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 <style>
-	body{
-		background-color: #123456;
-	}
+    body{
+      background-color: bisque
+    }
+    
+    .poemWrapper {
+        margin: 20vh auto;
+        max-width: 50%;
+    }
+    
+    .poem {
+        font-family: 'Indie Flower', cursive;
+        font-size: 3em;
+    }
+    
+    /* Portrait tablets and small desktops */
+    @media (min-width: 768px) and (max-width: 991px) {
+        .poem {
+            font-size: 2.5rem;
+        }
+    }
 
-	nav{
-		margin-top: 75px;
-	}
-
-	a{
-		color: gold;
-	}
-
+    /* Landscape phones and portrait tablets */
+    @media (max-width: 767px) {
+        .poem {
+            font-size: 2rem;
+        }
+    }
+    
+    
+    /* Portrait Phones and Smaller */
+    @media (max-width: 480px) {
+        .poemWrapper {
+            max-width: 80%;   
+        }
+        
+        .poem {
+            font-size: 1.5rem;   
+        }
+    }
 </style>
 </head>
 <body>
-<div class="container">
-<nav>
-	<h3>Some links...</h3>
-	<ul>
-		<li><a href="feestneus.html">Feestneus</a></li>
-		<li><a href="tutorialOnMakingAliases.html">Tutorial on Making Aliases</a></li>
-	</ul>
-</nav>
-</div>
+   <article class="poemWrapper">
+        <p class="poem">
+            Komt ze naar me toe <br><br>
+            'Dansen?' <br><br>
+            Antwoord ik gevat: <br>
+            'Je vraagt nog beter een mompelaar <br> 
+            als souffleur' <br><br>
+            Dat verstond ze niet. <br>
+            Letterlijk.
+        </p>
+   </article>
 </body>
 </html>
