@@ -32,10 +32,15 @@
         border: none;
         font-size: 3rem;
 /*        margin-top: -25px;*/
-        margin-top: -1.50rem;
+/*        margin-top: -1.50rem;*/
+        margin-top: -1px;
         color: grey;
     }
 
+    .openMenuButton img.svg-icon {
+         width: 1.5rem;   
+    }
+    
 /* menu
 --------------------------*/
     .vanish {
@@ -57,9 +62,13 @@
     nav ul li a {
         color: grey;
         font-size: 2rem;
-        text-decoration: none;   
+        text-decoration: none;
+        transition: color 1s;
     }
     
+    nav ul li a:hover{
+        color: cornflowerblue;   
+    }
     
     /* Portrait Phones and Smaller */
     @media (max-width: 480px) {
@@ -116,7 +125,7 @@
                 <li><a href="minimalIsOptimal.html">Minimalism</a></li>
             </ul>
         </nav>
-        <button class="openMenuButton">&#x02AF0</button>
+        <button class="openMenuButton"><img class="svg-icon" src="./svg/palletto_icon.svg" alt=""></button>
     </header>
    <article class="poemWrapper">
         <p class="poem">
