@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html {
+			min-width: 100vw;
+			min-height: 100vh;
+		}
+		body {
+			max-width: 80%;
+			margin: auto;
+		}
+		h1 {
+			color: #111A72;
+			font-family: monospace;
+		}
+
+		a {
+			color: white;
+		}
+
+		.flex-box {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.flex-item {
+			opacity: 1;
+			background: radial-gradient(#8B8A30, #0B334C);
+			text-align: center;
+
+			margin: 10px;
+
+			max-width: 500px;
+
+			transition: 1s;
+
+			cursor: pointer;
+		}
+
+		.flex-item:nth-child(even){
+			background: radial-gradient(#6BA54A, #347211);
+			color: blue;
+		}
+
+		.flex-item a {
+			text-decoration: none;
+		}
+
+		.flex-item:hover {
+			opacity: 0.80;
+		}
+	</style>
+</head>
+<body>	
+<h1>Belga Sport</h1>
+<p>Klik op de onderstaande balkjes, om naar de bijhorende downloadpagina te gaan.</p>
+<div class="flex-box" id="flex-box">
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/FdrsnbLEbA">Deel 1</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/T1wPhK1dFx">Deel 2</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/dgydxln5p3">Deel 3</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/DVF5CO6oUH">Deel 4</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/UNsrzdcWq1">Deel 5</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/VBYoIkGvuH">Deel 6</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/DWFYnOMD82">Deel 7</a></h2>
+	</div>
+	<div class="flex-item">
+		<h2><a target="_blank" href="https://we.tl/J4qYTXca1m">Deel 8</a></h2>
+	</div>
+</div>
+<script>
+	const flexItems = document.getElementsByClassName('flex-item');
+	const balkjes = Array.from(flexItems);
+
+	balkjes.forEach( (balkje) => {
+		balkje.addEventListener('click', (event) => {
+			console.log(event.target.nodeName);
+
+			console.log(event);
+
+			if (event.target.className === 'flex-item') {
+				console.log(event.target.childNodes[1].childNodes[0].href);
+				window.open(event.target.childNodes[1].childNodes[0].href);
+			}
+
+			if (event.target.nodeName === 'H2') {
+				console.log(event.target.childNodes[0].href);
+				window.open(event.target.childNodes[0].href);
+			}
+		});	
+	});
+</script>
+</body>
+</html>
