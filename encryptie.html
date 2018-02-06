@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>En het antwoord luidt...</title>
+	<style>	
+		html {
+			min-height: 100vh;
+			min-width: 100vw;
+		}
+
+		body {
+			margin: auto;
+			max-width: 80%;
+			margin-top: 100px;
+		}
+
+		input {
+			font-size: xx-large;
+			font-variant: small-caps;
+			color: grey;
+			width: 450pt;
+			height: 50pt;
+			border: none;
+			border-bottom: 1px solid #123456;
+			outline: none;
+		}
+
+		p {
+			font-family: monospace;
+		}
+	</style>
+</head>
+<body>
+	<p>Typ snel je voornaam in & ontdek het antwoord!</p>
+	<input id="key-field" autofocus>
+	<div id="answer-box"></div>
+
+	<script>
+		const keyField = document.getElementById('key-field');
+		const answerBox = document.getElementById('answer-box');
+
+		const displayAnswer	= () => {
+				answerBox.innerHTML = `
+					<p>Mes excuses, ik ben altijd op m'n hoede met dergelijke uiterst gevoelige informatie.</p>
+					<p>Maar zaterdag 3/03/'18 past zeker! :)</p>
+				`;
+		}
+
+		const hideAnswer = () => {
+				answerBox.innerHTML = "";
+		}
+
+		const verifyKey	= (event) => {
+				if (keyField.value.toLowerCase() === "hannah") {
+					displayAnswer();
+				} else {
+					hideAnswer();
+				}
+		}
+
+		keyField.addEventListener('input', verifyKey);
+	</script>
+</body>
+</html>
