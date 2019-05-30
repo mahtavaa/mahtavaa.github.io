@@ -171,22 +171,24 @@
 	renewQuestionBox(0);
 
 	answers.addEventListener('click', function(event) {
-		if (event.target.computedName === questions[questionNumber]['answer']){
-			console.log('correct');
-			document.body.classList.add('correct');
-			if (document.body.classList.contains('incorrect')) {
-				document.body.classList.remove('incorrect');
+		if (event.target.nodeName === 'BUTTON') {
+			if (event.target.innerText === questions[questionNumber]['answer']){
+				console.log('correct');
 				document.body.classList.add('correct');
-			} else {
-				document.body.classList.add('correct');
-			}
+				if (document.body.classList.contains('incorrect')) {
+					document.body.classList.remove('incorrect');
+					document.body.classList.add('correct');
+				} else {
+					document.body.classList.add('correct');
+				}
 
-		} else if(event.target.nodeName === 'BUTTON') {
-			if (document.body.classList.contains('correct')) {
-				document.body.classList.remove('correct');
-				document.body.classList.add('incorrect');
 			} else {
-				document.body.classList.add('incorrect');
+				if (document.body.classList.contains('correct')) {
+					document.body.classList.remove('correct');
+					document.body.classList.add('incorrect');
+				} else {
+					document.body.classList.add('incorrect');
+				}
 			}
 		}
 	});
