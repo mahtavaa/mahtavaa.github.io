@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz</title>
+	<link href="https://fonts.googleapis.com/css?family=Montaga&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./mainstylez.css">
+</head>
+<body>
+	<div id="question">
+		<div id="question-task"></div>
+		<div id="question-verb"></div>
+		<div id="question-conjugation"></div>
+	</div>
+	<div id="answers">
+		<button id="option-1"></button>
+		<button id="option-2"></button>		
+	</div>
+	<div id="new-question"></div>
+<script>
+	const questions = [
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "acheter",
+			"person": "1",
+			"number": "Singulier",
+			"tense": "Futur Simple",
+			"option 1": "achèterai",
+			"option 2": "achèterais",
+			"answer": "achèterai"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "faire",
+			"person": "2",
+			"number": "Singulier",
+			"tense": "Conditionnel Présent",
+			"option 1": "ferais",
+			"option 2": "feras",
+			"answer": "ferais"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "conspuer",
+			"person": "3",
+			"number": "Singulier",
+			"tense": "Passé simple",
+			"option 1": "conspua",
+			"option 2": "conspuera",
+			"answer": "conspua"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "connaître",
+			"person": "1",
+			"number": "Pluriel",
+			"tense": "Conditionnel Présent",
+			"option 1": "connaîtrons",
+			"option 2": "connaîtrions",
+			"answer": "connaîtrions"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "aller",
+			"person": "2",
+			"number": "Pluriel",
+			"tense": "Subjonctif Présent",
+			"option 1": "alliez",
+			"option 2": "iriez",
+			"answer": "alliez"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "partir",
+			"person": "3",
+			"number": "Pluriel",
+			"tense": "Indicatif Imparfait",
+			"option 1": "partiraient",
+			"option 2": "partaient",
+			"answer": "partaient"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "envoyer",
+			"person": "1",
+			"number": "Singulier",
+			"tense": "Conditionnel Présent",
+			"option 1": "enverrais",
+			"option 2": "enverrai",
+			"answer": "enverrais"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "craindre",
+			"person": "1",
+			"number": "Singulier",
+			"tense": "Futur Simple",
+			"option 1": "craindrais",
+			"option 2": "craindrai",
+			"answer": "craindrai"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "savoir",
+			"person": "2",
+			"number": "Pluriel",
+			"tense": "Impératif",
+			"option 1": "sachez",
+			"option 2": "sachiez",
+			"answer": "sachez"
+		},
+		{
+			"question": "Indiquez la conjugaison correcte.",
+			"verb": "devoir",
+			"person": "",
+			"number": "",
+			"tense": "Participe Passé",
+			"option 1": "dû",
+			"option 2": "du",
+			"answer": "dû"
+		}		
+	];
+
+	const 	questionBox = document.getElementById('question'),
+			questionTask = document.getElementById('question-task'),
+			questionVerb = document.getElementById('question-verb'),
+			questionConjugation = document.getElementById('question-conjugation'),
+			firstOptionButton = document.getElementById('option-1'),
+			secondOptionButton = document.getElementById('option-2'),
+			answerBox = document.getElementById('answers'),
+			newQuestionButton = document.getElementById('new-question');
+	numberSuffix = (number) => {
+		switch(number) {
+			case '1':
+				return 'ère';
+			case '2':
+				return 'ème';
+			case '3':
+				return 'ème';
+		}
+		return '';
+	};
+
+	let questionNumber = 0;
+
+	let renewQuestionBox = (questionNumber) => {
+		
+		let		question = questions[questionNumber]['question'],
+				verb = questions[questionNumber]['verb'],
+				person = questions[questionNumber]['person'],
+				number = questions[questionNumber]['number'],
+				tense = questions[questionNumber]['tense'],
+				firstOption = questions[questionNumber]['option 1'],
+				secondOption = questions[questionNumber]['option 2'];
+
+		questionTask.innerHTML = `${question}`;
+		questionVerb.innerHTML = `${verb}`;
+		questionConjugation.innerHTML = `${tense} | ${person}<sup>${numberSuffix(questions[questionNumber]['person'])}</sup> ${number}`;
+		firstOptionButton.innerHTML = firstOption;
+		secondOptionButton.innerHTML = secondOption;
+	}
+
+	newQuestionButton.addEventListener('click', function() {
+		questionNumber++;
+		questionNumber = questionNumber%10;
+		document.body.classList.remove('correct');
+		document.body.classList.remove('incorrect');
+		renewQuestionBox(questionNumber);
+	});
+
+	renewQuestionBox(0);
+
+	answers.addEventListener('click', function(event) {
+		if (event.target.computedName === questions[questionNumber]['answer']){
+			console.log('correct');
+			document.body.classList.add('correct');
+			if (document.body.classList.contains('incorrect')) {
+				document.body.classList.remove('incorrect');
+				document.body.classList.add('correct');
+			} else {
+				document.body.classList.add('correct');
+			}
+
+		} else if(event.target.nodeName === 'BUTTON') {
+			if (document.body.classList.contains('correct')) {
+				document.body.classList.remove('correct');
+				document.body.classList.add('incorrect');
+			} else {
+				document.body.classList.add('incorrect');
+			}
+		}
+	});
+</script>
+</body>
+</html>
