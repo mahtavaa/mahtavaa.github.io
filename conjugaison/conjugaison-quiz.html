@@ -141,7 +141,6 @@
 		return '';
 	};
 
-	let questionNumber = 0;
 
 	let renewQuestionBox = (questionNumber) => {
 		
@@ -160,17 +159,18 @@
 		secondOptionButton.innerHTML = secondOption;
 	}
 
-	newQuestionButton.addEventListener('click', function() {
+	const renewScreen = () => {
 		questionNumber++;
 		questionNumber = questionNumber%10;
 		document.body.classList.remove('correct');
 		document.body.classList.remove('incorrect');
 		renewQuestionBox(questionNumber);
-	});
+	}
 
+	let questionNumber = 0;
 	renewQuestionBox(0);
 
-	answers.addEventListener('click', function(event) {
+	const evaluateAnswer = (event) => {
 		if (event.target.nodeName === 'BUTTON') {
 			if (event.target.innerText === questions[questionNumber]['answer']){
 				console.log('correct');
@@ -191,30 +191,12 @@
 				}
 			}
 		}
-	});
+	}
 
-	answers.addEventListener('touchstart', function(event) {
-		if (event.target.nodeName === 'BUTTON') {
-			if (event.target.innerText === questions[questionNumber]['answer']){
-				console.log('correct');
-				document.body.classList.add('correct');
-				if (document.body.classList.contains('incorrect')) {
-					document.body.classList.remove('incorrect');
-					document.body.classList.add('correct');
-				} else {
-					document.body.classList.add('correct');
-				}
-
-			} else {
-				if (document.body.classList.contains('correct')) {
-					document.body.classList.remove('correct');
-					document.body.classList.add('incorrect');
-				} else {
-					document.body.classList.add('incorrect');
-				}
-			}
-		}
-	});
+	newQuestionButton.addEventListener('click', renewScreen);
+	newQuestionButton.addEventListener('touchstart', renewScreen);
+	answers.addEventListener('click', evaluateAnswer);
+	answers.addEventListener('touchstart', evaluateAnswer);
 </script>
 </body>
 </html>

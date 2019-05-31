@@ -68,17 +68,31 @@ button:hover {
 	height: 2em;
 	width: 2em;
 	border-radius: 50%;
-	border: 2px solid red;
+	border: 2px solid grey;
 	display: grid;
 	flex-direction: column;
 	justify-self: center;
 	align-self: center;
+	margin-bottom: 1em;
 }
 
 #new-question:hover {
-	border: 2px dotted red;
+	border: 2px dotted black;
+	animation: koekoek 1.5s ease-out;
 }
 
 .pink {
 	background-color: red;
+}
+
+@keyframes koekoek {
+	0% {
+		transform: scale(1) rotate(0deg);
+	}
+	50% {
+		transform: scale(1.2) rotate(90deg);
+	}
+	100% {
+		transform: scale(1) rotate(0deg);
+	}
 }
