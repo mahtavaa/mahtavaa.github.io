@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oelala</title>
+	<style>
+		body {
+			background-image: url('./images/madeliefje.png');
+			background-size: 8em 8em;
+			min-height: 95vh;
+		}
+		#dirtPool {
+			position: relative;
+		}
+		img {
+			max-height: 12em;
+		}
+		img#pig {
+			position: absolute;
+		}
+		.hidden {
+			display: none;
+		}
+
+		#victoryMessage {
+			display: flex;
+			background-color: tomato;
+			background-image: url('./images/flying-pig.gif');
+			opacity: 0.95;
+			min-width: 100vw;
+			min-height: 100vh;
+			text-align: center;
+			color: gold;
+			flex-direction: column;
+			justify-content: center;
+			align-content: center;
+		}
+
+		pre {
+			font-size: xx-large;
+		}
+	</style>
+</head>
+<body>
+	<div id="dirtPool">
+		<img id="pig" src="./images/pig_0.png" alt="cochon mignon">
+	</div>
+	<div class="hidden" id="msg-container">
+		<div id="victoryMessage">
+			<div><h1>Félicitations ! Vous avez gagné !!!</p></div>
+			<div>
+	<pre>
+	Nous vous offrons...
+	
+	Un week-end              
+
+	à Anvers* !
+
+
+
+	*1 million de câlins du guide inclus
+	</pre>
+			</div>
+		</div>
+	</div>
+<script>
+	let count = 0;
+	let dirtPool = document.getElementById('dirtPool');
+	let victoryMessage = document.getElementById('msg-container');
+	let pig_position_x = 0;
+	let pig_position_y = 0;
+
+	let windowInnerWidth = window.innerWidth;
+	let windowInnerHeight = window.innerHeight;
+
+
+	let generatePig = () => {
+		let img = document.createElement('img');
+		img.src = `./images/pig_${count}.png`;
+		img.id = 'pig';
+
+		dirtPool.appendChild(img);
+	};
+
+	let movePig = () => {
+		pig_position_x = Math.round(Math.random()*windowInnerWidth);
+		pig_position_y = Math.round(Math.random()*0.5*windowInnerHeight);
+
+		let pig = document.getElementById('pig');
+		pig.style.left = `${pig_position_x}px`;
+		pig.style.top = `${pig_position_y}px`;
+	};
+
+	let handlePigClick = (e) => {
+		if (e.target.nodeName == 'IMG') {
+			console.log(e);
+			if (count < 9) {
+				count++;
+				console.log(`The new count is ${count}`);
+
+				// removePig();
+				e.target.remove();
+				generatePig();	
+			} else {
+				displayVictoryMessage();
+			}			
+		}
+
+	};
+
+	let intervalCounter = 0;
+
+	setInterval(movePig, 1000);
+
+	let displayVictoryMessage = () => {
+		console.log(`You've won! :)`);
+		victoryMessage.classList.toggle('hidden');
+	};
+
+	dirtPool.addEventListener('click', handlePigClick);
+</script>
+</body>
+</html>
